@@ -14,8 +14,8 @@
       --muted: #72766d;
       --line: #deddd5;
       --accent: #9b7950;
-      --serif: Georgia, "Times New Roman", serif;
       --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --serif: var(--sans);
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +28,7 @@
       font: 15px/1.7 var(--sans);
     }
     a { color: inherit; }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+    h1, h2, h3 { font-family: var(--sans); font-weight: 700; line-height: 1.15; }
     .topbar {
       position: sticky;
       z-index: 2;
@@ -192,7 +192,7 @@
     }
     footer { padding: 2.5rem 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
     .footer-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; width: min(100%, 980px); margin: 0 auto; }
-    .footer-block h2 { margin: 0 0 .65rem; color: var(--ink); font: 1.15rem var(--serif); }
+    .footer-block h2 { margin: 0 0 .65rem; color: var(--ink); font: 700 1.15rem var(--sans); }
     .footer-block p { margin: 0 0 .35rem; }
     .footer-block a { text-decoration-color: var(--line); text-underline-offset: .2em; }
     .footer-credit { grid-column: 1 / -1; margin: 0; padding-top: 1rem; border-top: 1px solid var(--line); text-align: center; }
@@ -212,8 +212,12 @@
         font-weight: 700;
         text-align: center;
       }
-      body * { font-weight: 600; }
       h1, h2, h3 { font-weight: 700; }
+      .eyebrow, .dates, .scroll-cue, .programme-note, .music-number, .music-context,
+      .lyrics-note, .note, .placeholder, cite, .guestbook, footer {
+        font-size: .75rem;
+        letter-spacing: .04em;
+      }
       .hero {
         grid-template-columns: 1fr;
         min-height: auto;
