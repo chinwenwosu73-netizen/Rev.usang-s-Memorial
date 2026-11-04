@@ -92,6 +92,41 @@
       text-decoration: none;
       text-transform: uppercase;
     }
+    .rsvp-action { margin-top: 1.75rem; }
+    .rsvp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .8rem 1.4rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 rgb(155 121 80 / 0%);
+      color: #fff;
+      cursor: pointer;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      list-style: none;
+      animation: rsvp-glow 2.4s ease-in-out infinite;
+    }
+    .rsvp-button::-webkit-details-marker { display: none; }
+    .rsvp-button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+    .rsvp-action[open] .rsvp-button { animation: none; }
+    .rsvp-details {
+      width: fit-content;
+      max-width: 100%;
+      margin: .8rem auto 0;
+      padding: .7rem 1rem;
+      border: 1px solid var(--line);
+      background: rgb(246 244 239 / 90%);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    @keyframes rsvp-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgb(155 121 80 / 32%); }
+      50% { box-shadow: 0 0 0 .55rem rgb(155 121 80 / 0%); }
+    }
     .section { padding: clamp(5rem, 10vw, 9rem) 1.5rem; border-top: 1px solid var(--line); }
     .inner { width: min(100%, 980px); margin: 0 auto; }
     .heading { margin-bottom: 3rem; }
@@ -242,6 +277,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      .rsvp-button { animation: none; }
     }
   </style>
 </head>
@@ -267,6 +303,10 @@
         <p class="subtitle">A life of faith, service, and love.</p>
         <div class="rule" aria-hidden="true"></div>
         <p class="dates">Tuesday, 28 July 2026 · Aged 72</p>
+        <details class="rsvp-action">
+          <summary class="rsvp-button">RSVP Contact</summary>
+          <p class="rsvp-details">RSVP contact details will be shared by the family.</p>
+        </details>
         <a class="scroll-cue" href="#service">Remembering together</a>
       </div>
       <img class="hero-portrait" src="rev-iso-portrait.jpg" alt="Portrait of Most Rev. Usang Ekpenyong Iso">
@@ -520,12 +560,7 @@
 
   <footer>
     <div class="footer-inner">
-      <section class="footer-block" aria-labelledby="rsvp-title">
-        <h2 id="rsvp-title">RSVP Contact</h2>
-        <p>RSVP contact details will be shared by the family.</p>
-      </section>
-      <section class="footer-block" aria-labelledby="designer-title">
-        <h2 id="designer-title">Contact website designer</h2>
+      <section class="footer-block">
         <p>Website created by Chinwe Nwosu</p>
         <p>Email: <a href="mailto:chinwenwosu73@gmail.com">chinwenwosu73@gmail.com</a></p>
         <p>WhatsApp: <a href="https://wa.me/34667466860">+34 667 466 860</a></p>
