@@ -152,45 +152,40 @@
     .programme-part ul { margin: 0; padding-left: 1.25rem; }
     .programme-part li { padding: .18rem 0; }
     .programme-part li::marker { color: var(--accent); }
-    .programme-note { margin: 1rem 0 0; color: var(--muted); font-size: .82rem; }
-    .music-section { margin-top: 4rem; }
-    .music-list { border-top: 1px solid var(--line); }
-    .hymn-lyrics {
-      border-bottom: 1px solid var(--line);
-    }
-    .hymn-lyrics summary {
-      display: grid;
-      grid-template-columns: minmax(5rem, .45fr) minmax(0, 1fr) minmax(10rem, 1fr) 1.5rem;
+    .programme-hymn { margin-top: .35rem; }
+    .programme-hymn summary {
+      display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem 0;
+      gap: .55rem;
+      padding: .45rem .6rem;
+      border: 1px solid var(--line);
+      border-radius: .25rem;
       cursor: pointer;
       list-style: none;
+      font-size: .78rem;
+      font-weight: 600;
     }
-    .hymn-lyrics summary::-webkit-details-marker { display: none; }
-    .hymn-lyrics summary::after {
-      width: .55rem;
-      height: .55rem;
-      justify-self: center;
+    .programme-hymn summary::-webkit-details-marker { display: none; }
+    .programme-hymn summary::after {
+      width: .45rem;
+      height: .45rem;
+      margin-left: auto;
+      flex: 0 0 auto;
       border-right: 1.5px solid var(--accent);
       border-bottom: 1.5px solid var(--accent);
       content: "";
       transform: translateY(-.15rem) rotate(45deg);
       transition: transform 160ms ease;
     }
-    .hymn-lyrics[open] summary::after { transform: translateY(.15rem) rotate(225deg); }
-    .hymn-lyrics summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-    .music-number { color: var(--accent); font-size: .78rem; }
-    .music-title { font-family: var(--serif); }
-    .music-context { color: var(--muted); font-size: .85rem; }
-    .lyrics-body {
+    .programme-hymn[open] summary::after { transform: translateY(.1rem) rotate(225deg); }
+    .programme-hymn summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .programme-hymn .lyrics-body {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .75rem 2rem;
-      padding: .5rem 2rem 1.5rem 6rem;
+      grid-template-columns: 1fr;
+      gap: .65rem;
+      padding: .75rem .7rem;
     }
-    .lyrics-body p { margin: 0; font-family: var(--serif); line-height: 1.8; }
-    .lyrics-note { grid-column: 1 / -1; margin: .25rem 0 0; color: var(--muted); font: .8rem/1.6 var(--sans) !important; }
+    .programme-hymn .lyrics-body p { margin: 0; line-height: 1.7; }
     .note, .placeholder { color: var(--muted); font-size: .85rem; }
     .biography { max-width: 700px; font: clamp(1.18rem, 2.2vw, 1.55rem)/1.8 var(--serif); }
     .biography .placeholder { font: .9rem/1.7 var(--sans); }
@@ -248,8 +243,7 @@
         text-align: center;
       }
       h1, h2, h3 { font-weight: 700; }
-      .eyebrow, .dates, .scroll-cue, .programme-note, .music-number, .music-context,
-      .lyrics-note, .note, .placeholder, cite, .guestbook, footer {
+      .eyebrow, .dates, .scroll-cue, .note, .placeholder, cite, .guestbook, footer {
         font-size: .75rem;
         letter-spacing: .04em;
       }
@@ -264,11 +258,6 @@
       .hero-portrait { width: min(100%, 390px); max-height: 46vh; justify-self: center; }
       .rule { margin-right: auto; margin-left: auto; }
       .funeral-details { grid-template-columns: 1fr; }
-      .hymn-lyrics summary { grid-template-columns: 4rem minmax(0, 1fr) 1.5rem; gap: .3rem 1rem; }
-      .hymn-lyrics summary .music-context { grid-column: 2; }
-      .hymn-lyrics summary::after { grid-column: 3; grid-row: 1 / span 2; }
-      .lyrics-body { grid-template-columns: 1fr; padding: .5rem 0 1.5rem; }
-      .lyrics-note { grid-column: auto; }
       .cards { grid-template-columns: 1fr; }
       .memory-gallery { columns: 2; }
       .condolence { align-items: flex-start; flex-direction: column; }
@@ -305,7 +294,7 @@
         <p class="dates">Tuesday, 28 July 2026 · Aged 72</p>
         <details class="rsvp-action">
           <summary class="rsvp-button">RSVP Contact</summary>
-          <p class="rsvp-details">RSVP contact details will be shared by the family.</p>
+          <p class="rsvp-details"><a href="tel:09064948956">Ntoe - 09064948956</a></p>
         </details>
         <a class="scroll-cue" href="#service">Remembering together</a>
       </div>
@@ -343,11 +332,42 @@
             <h3>The Approach</h3>
             <ul>
               <li>Vestry prayer</li>
-              <li>Procession of the Word, choir, elders, ministers, and caskets</li>
-              <li>Hymn: RCH 592</li>
-              <li>Prelude: RCH 194 (verses 1 and 4)</li>
+              <li>Procession of the Word, choir, elders, ministers, and casket</li>
+              <li>Hymn: RCH 592
+                <details class="programme-hymn">
+                  <summary>Open lyrics — There Is a Land of Pure Delight</summary>
+                  <div class="lyrics-body">
+                    <p>1. There is a land of pure delight,<br>Where saints immortal reign;<br>Infinite day excludes the night,<br>And pleasures banish pain;</p>
+                    <p>2. There everlasting spring abides,<br>And never-withering flowers;<br>Death, like a narrow sea, divides<br>This heavenly land from ours.</p>
+                    <p>3. Sweet fields beyond the swelling flood<br>Stand dressed in living green;<br>So to the Jews old Canaan stood,<br>And Jordan rolled between.</p>
+                    <p>4. But timorous mortals start and shrink<br>To cross this narrow sea,<br>And linger, shivering on the brink,<br>And fear to launch away.</p>
+                    <p>5. O could we make our doubts remove—<br>Those gloomy doubts that rise—<br>And see the Canaan that we love,<br>With unbeclouded eyes;</p>
+                    <p>6. Could we but climb where Moses stood,<br>And view the landscape o’er,<br>Not Jordan’s stream, nor death’s cold flood,<br>Should fright us from the shore.</p>
+                  </div>
+                </details>
+              </li>
+              <li>Prelude: RCH 194 (verses 1 and 4)
+                <details class="programme-hymn">
+                  <summary>Open lyrics — Breathe on Me, Breath of God</summary>
+                  <div class="lyrics-body">
+                    <p>Breathe on me, breath of God;<br>Fill me with life anew,<br>That I may love what Thou dost love,<br>And do what Thou wouldst do.</p>
+                    <p>Breathe on me, breath of God;<br>So shall I never die,<br>But live with Thee the perfect life<br>Of Thine eternity.</p>
+                  </div>
+                </details>
+              </li>
               <li>Call to worship</li>
-              <li>Congregational hymn: RCH 135</li>
+              <li>Congregational hymn: RCH 135
+                <details class="programme-hymn">
+                  <summary>Open lyrics — Rejoice, the Lord Is King</summary>
+                  <div class="lyrics-body">
+                    <p>1. Rejoice, the Lord is King;<br>Your Lord and King adore;<br>Mortals, give thanks and sing<br>And triumph evermore:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice”</p>
+                    <p>2. Jesus, the Saviour, reigns,<br>The God of truth and love;<br>When He had purged our stains,<br>He took His seat above:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice”</p>
+                    <p>3. His Kingdom cannot fail;<br>He rules o’er earth and heaven;<br>The keys of death and hell<br>Are to our Jesus given:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice.”</p>
+                    <p>4. He sits at God’s right hand<br>Till all His foes submit,<br>And bow to His command,<br>And fall beneath His feet:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice.”</p>
+                    <p>5. Rejoice in glorious hope;<br>Jesus, the Judge, shall come,<br>And take His servants up<br>To their eternal home;<br>We soon shall hear the archangel’s voice;<br>The trump of God shall sound, “Rejoice.”</p>
+                  </div>
+                </details>
+              </li>
               <li>Prayers of adoration, confession, and supplication</li>
               <li>Anthem by Big Qua Town Parish Choir</li>
             </ul>
@@ -361,7 +381,19 @@
               <li>Biography of Rev. Usang Iso</li>
               <li>Tributes and condolences</li>
               <li>Moment of silence</li>
-              <li>Hymn before sermon: RCH 592</li>
+              <li>Hymn before sermon: RCH 592
+                <details class="programme-hymn">
+                  <summary>Open lyrics — There Is a Land of Pure Delight</summary>
+                  <div class="lyrics-body">
+                    <p>1. There is a land of pure delight,<br>Where saints immortal reign;<br>Infinite day excludes the night,<br>And pleasures banish pain;</p>
+                    <p>2. There everlasting spring abides,<br>And never-withering flowers;<br>Death, like a narrow sea, divides<br>This heavenly land from ours.</p>
+                    <p>3. Sweet fields beyond the swelling flood<br>Stand dressed in living green;<br>So to the Jews old Canaan stood,<br>And Jordan rolled between.</p>
+                    <p>4. But timorous mortals start and shrink<br>To cross this narrow sea,<br>And linger, shivering on the brink,<br>And fear to launch away.</p>
+                    <p>5. O could we make our doubts remove—<br>Those gloomy doubts that rise—<br>And see the Canaan that we love,<br>With unbeclouded eyes;</p>
+                    <p>6. Could we but climb where Moses stood,<br>And view the landscape o’er,<br>Not Jordan’s stream, nor death’s cold flood,<br>Should fright us from the shore.</p>
+                  </div>
+                </details>
+              </li>
               <li>Sermon by Most Rev. Dr. Ubong Ekpenyong Eyo, MNABIS, MNASR</li>
               <li>Ascription of glory</li>
             </ul>
@@ -376,19 +408,62 @@
               <li>Announcements and offerings</li>
               <li>Freewill offering by the Contemporary Choir</li>
               <li>Welfare offering for the family and dedication of offering</li>
-              <li>Closing hymn: RCH 331</li>
+              <li>Closing hymn: RCH 331
+                <details class="programme-hymn">
+                  <summary>Open lyrics — O Lord of Life, Where’er They Be</summary>
+                  <div class="lyrics-body">
+                    <p>1. O Lord of life, where’er they be,<br>Safe in Thine own eternity,<br>Our dead are living unto Thee.<br>Hallelujah!</p>
+                    <p>2. All souls are Thine, and, here or there,<br>They rest within Thy sheltering care;<br>One providence alike they share.<br>Hallelujah!</p>
+                    <p>3. Thy word is true, Thy ways are just;<br>Above the requiem, “Dust to dust,”<br>Shall rise our psalm of grateful trust.<br>Hallelujah!</p>
+                    <p>4. O happy they in God who rest,<br>No more by fear and doubt oppressed;<br>Living or dying, they are blest<br>Hallelujah!</p>
+                  </div>
+                </details>
+              </li>
               <li>Benediction</li>
-              <li>Recessional hymn: RCH 591</li>
+              <li>Recessional hymn: RCH 591
+                <details class="programme-hymn">
+                  <summary>Open lyrics — Every Morning the Red Sun</summary>
+                  <div class="lyrics-body">
+                    <p>1. Every morning the red sun<br>Rises warm and bright;<br>But the evening cometh on,<br>And the dark cold night;<br>There’s a bright land far-away<br>Where ’tis never-ending day.</p>
+                    <p>2. Every spring the sweet young flowers<br>Open bright and gay;<br>Till the chilly autumn hours<br>Withers them away;<br>There’s a land we have not seen,<br>Where the trees are always green.</p>
+                    <p>3. Little birds sing songs of praise<br>All the summer long;<br>But in cold, shorter days<br>They forget their song;<br>There’s a place where angels sing<br>Ceaseless praises to their Kings.</p>
+                    <p>4. Christ our Lord is ever near<br>Those who follow Him;<br>But we cannot see Him here,<br>For our eyes are dim;<br>There is a most happy place,<br>Where men always see His face.</p>
+                    <p>5. Who shall go to that bright land?<br>All who love the right:<br>Holy children there shall stand<br>In their robes of white;<br>For that heaven, so bright and blest,<br>Is our everlasting rest.</p>
+                  </div>
+                </details>
+              </li>
             </ul>
           </article>
           <article class="programme-part">
             <h3>At the Graveside</h3>
             <ul>
-              <li>Congregational hymn: RCH 329</li>
+              <li>Congregational hymn: RCH 329
+                <details class="programme-hymn">
+                  <summary>Open lyrics — When Our Heads Are Bowed with Woe</summary>
+                  <div class="lyrics-body">
+                    <p>1. When our heads are bowed with woe,<br>When our bitter tears o’erflow,<br>When we mourn the lost, the dear,<br>Jesus, Son of Mary hear!</p>
+                    <p>2. Thou our throbbing flesh hast worn;<br>Thou our mortal griefs hast borne;<br>Thou hast shed the human tear;<br>Jesus, Son of Mary hear!</p>
+                    <p>3. When the sullen death-bell tolls<br>For our own departing souls,<br>When our final doom is near,<br>Jesus, Son of Mary hear!</p>
+                    <p>4. Thou hast bowed the dying head:<br>Thou the blood of life hast shed;<br>Thou hast filled a mortal bier;<br>Jesus, Son of Mary hear!</p>
+                    <p>5. When the heart is sad within<br>With the thought of all its sin.<br>When the spirit shrinks with fear,<br>Jesus, Son of Mary hear!</p>
+                    <p>6. Thou the shame, the grief, hast known,<br>Though the sins were not Thine own:<br>Thou hast deigned their load to bear;<br>Jesus, Son of Mary hear!</p>
+                  </div>
+                </details>
+              </li>
               <li>Scriptural sentences</li>
               <li>Consecration of the tomb</li>
               <li>Committal of the body</li>
-              <li>Congregational hymn: RCH 330</li>
+              <li>Congregational hymn: RCH 330
+                <details class="programme-hymn">
+                  <summary>Open lyrics — Now the Labourer’s Task Is O’er</summary>
+                  <div class="lyrics-body">
+                    <p>1. Now the labourer’s task is o’er,<br>Now the battle-day is past;<br>Now upon the farther shore<br>Lands the voyager at last.<br>Father, in Thy gracious keeping<br>Leave we now Thy servant sleeping.</p>
+                    <p>2. There the tears of earth are dried;<br>There its hidden things are clear;<br>There the work of life is tried<br>By a juster Judge than here.</p>
+                    <p>3. There the penitents that turn<br>To the Cross their dying eyes<br>All the love of Jesus learn<br>At His feet in Paradise.</p>
+                    <p>4. “Earth to earth, and dust to dust,”<br>Calmly now the words we say;<br>Leaving her to sleep, in trust,<br>Till the resurrection day.</p>
+                  </div>
+                </details>
+              </li>
               <li>Sealing of the grave with choir singing</li>
               <li>Benediction</li>
             </ul>
@@ -396,99 +471,23 @@
           <article class="programme-part">
             <h3>At Home</h3>
             <ul>
-              <li>Hymn: RCH 29</li>
+              <li>Hymn: RCH 29
+                <details class="programme-hymn">
+                  <summary>Open lyrics — Now Thank We All Our God</summary>
+                  <div class="lyrics-body">
+                    <p>1. Now thank we all our God,<br>With hearts and hands and voices,<br>Who wondrous things hath done,<br>In whom His world rejoices,—<br>Who, from our mothers’ arms,<br>Hath blessed us on our way<br>With countless gifts of love,<br>And still is ours to-day.</p>
+                    <p>2. O may this bounteous God<br>Through all our lives be near us,<br>With ever-joyful hearts<br>And blessed peace to cheer us,<br>And keep us by His grace,<br>And guide us when perplexed,<br>And free us from all ills<br>In this world and the next.</p>
+                    <p>3. All praise and thanks to God<br>The Father now be given,<br>The Son and Him who reigns<br>With them in highest heaven,—<br>The one, eternal God,<br>Whom earth and heaven adore;<br>For thus it was, is now,<br>And shall be evermore.</p>
+                  </div>
+                </details>
+              </li>
               <li>Words of comfort</li>
               <li>Prayers and the Lord’s Prayer</li>
               <li>Benediction</li>
             </ul>
           </article>
         </div>
-        <p class="programme-note">Service times and which events fall on each funeral date were not specified in the supplied materials.</p>
-        <div class="music-section">
-          <div class="heading">
-            <p class="eyebrow">For worship and remembrance</p>
-            <h2>Songs &amp; Hymns</h2>
-            <p>Select a hymn to read its verses as printed in the funeral programme.</p>
-          </div>
-          <div class="music-list">
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 592</span><span class="music-title">There Is a Land of Pure Delight</span><span class="music-context">Procession and before the sermon · 6 verses</span></summary>
-              <div class="lyrics-body">
-                <p>1. There is a land of pure delight,<br>Where saints immortal reign;<br>Infinite day excludes the night,<br>And pleasures banish pain;</p>
-                <p>2. There everlasting spring abides,<br>And never-withering flowers;<br>Death, like a narrow sea, divides<br>This heavenly land from ours.</p>
-                <p>3. Sweet fields beyond the swelling flood<br>Stand dressed in living green;<br>So to the Jews old Canaan stood,<br>And Jordan rolled between.</p>
-                <p>4. But timorous mortals start and shrink<br>To cross this narrow sea,<br>And linger, shivering on the brink,<br>And fear to launch away.</p>
-                <p>5. O could we make our doubts remove—<br>Those gloomy doubts that rise—<br>And see the Canaan that we love,<br>With unbeclouded eyes;</p>
-                <p>6. Could we but climb where Moses stood,<br>And view the landscape o’er,<br>Not Jordan’s stream, nor death’s cold flood,<br>Should fright us from the shore.</p>
-              </div>
-            </details>
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 194</span><span class="music-title">Breathe on Me, Breath of God</span><span class="music-context">Prelude · verses 1 and 4 as printed</span></summary>
-              <div class="lyrics-body">
-                <p>Breathe on me, breath of God;<br>Fill me with life anew,<br>That I may love what Thou dost love,<br>And do what Thou wouldst do.</p>
-                <p>Breathe on me, breath of God;<br>So shall I never die,<br>But live with Thee the perfect life<br>Of Thine eternity.</p>
-                <p class="lyrics-note">The programme specifies verses 1 and 4 and prints these two verses.</p>
-              </div>
-            </details>
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 135</span><span class="music-title">Rejoice, the Lord Is King</span><span class="music-context">Congregational hymn · 5 verses</span></summary>
-              <div class="lyrics-body">
-                <p>1. Rejoice, the Lord is King;<br>Your Lord and King adore;<br>Mortals, give thanks and sing<br>And triumph evermore:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice”</p>
-                <p>2. Jesus, the Saviour, reigns,<br>The God of truth and love;<br>When He had purged our stains,<br>He took His seat above:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice”</p>
-                <p>3. His Kingdom cannot fail;<br>He rules o’er earth and heaven;<br>The keys of death and hell<br>Are to our Jesus given:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice.”</p>
-                <p>4. He sits at God’s right hand<br>Till all His foes submit,<br>And bow to His command,<br>And fall beneath His feet:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice.”</p>
-                <p>5. Rejoice in glorious hope;<br>Jesus, the Judge, shall come,<br>And take His servants up<br>To their eternal home;<br>We soon shall hear the archangel’s voice;<br>The trump of God shall sound, “Rejoice.”</p>
-              </div>
-            </details>
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 331</span><span class="music-title">O Lord of Life, Where’er They Be</span><span class="music-context">Closing hymn · 4 verses</span></summary>
-              <div class="lyrics-body">
-                <p>1. O Lord of life, where’er they be,<br>Safe in Thine own eternity,<br>Our dead are living unto Thee.<br>Hallelujah!</p>
-                <p>2. All souls are Thine, and, here or there,<br>They rest within Thy sheltering care;<br>One providence alike they share.<br>Hallelujah!</p>
-                <p>3. Thy word is true, Thy ways are just;<br>Above the requiem, “Dust to dust,”<br>Shall rise our psalm of grateful trust.<br>Hallelujah!</p>
-                <p>4. O happy they in God who rest,<br>No more by fear and doubt oppressed;<br>Living or dying, they are blest<br>Hallelujah!</p>
-              </div>
-            </details>
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 591</span><span class="music-title">Every Morning the Red Sun</span><span class="music-context">Recessional hymn · 5 verses</span></summary>
-              <div class="lyrics-body">
-                <p>1. Every morning the red sun<br>Rises warm and bright;<br>But the evening cometh on,<br>And the dark cold night;<br>There’s a bright land far-away<br>Where ’tis never-ending day.</p>
-                <p>2. Every spring the sweet young flowers<br>Open bright and gay;<br>Till the chilly autumn hours<br>Withers them away;<br>There’s a land we have not seen,<br>Where the trees are always green.</p>
-                <p>3. Little birds sing songs of praise<br>All the summer long;<br>But in cold, shorter days<br>They forget their song;<br>There’s a place where angels sing<br>Ceaseless praises to their Kings.</p>
-                <p>4. Christ our Lord is ever near<br>Those who follow Him;<br>But we cannot see Him here,<br>For our eyes are dim;<br>There is a most happy place,<br>Where men always see His face.</p>
-                <p>5. Who shall go to that bright land?<br>All who love the right:<br>Holy children there shall stand<br>In their robes of white;<br>For that heaven, so bright and blest,<br>Is our everlasting rest.</p>
-              </div>
-            </details>
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 329</span><span class="music-title">When Our Heads Are Bowed with Woe</span><span class="music-context">Graveside congregational hymn · 6 verses</span></summary>
-              <div class="lyrics-body">
-                <p>1. When our heads are bowed with woe,<br>When our bitter tears o’erflow,<br>When we mourn the lost, the dear,<br>Jesus, Son of Mary hear!</p>
-                <p>2. Thou our throbbing flesh hast worn;<br>Thou our mortal griefs hast borne;<br>Thou hast shed the human tear;<br>Jesus, Son of Mary hear!</p>
-                <p>3. When the sullen death-bell tolls<br>For our own departing souls,<br>When our final doom is near,<br>Jesus, Son of Mary hear!</p>
-                <p>4. Thou hast bowed the dying head:<br>Thou the blood of life hast shed;<br>Thou hast filled a mortal bier;<br>Jesus, Son of Mary hear!</p>
-                <p>5. When the heart is sad within<br>With the thought of all its sin.<br>When the spirit shrinks with fear,<br>Jesus, Son of Mary hear!</p>
-                <p>6. Thou the shame, the grief, hast known,<br>Though the sins were not Thine own:<br>Thou hast deigned their load to bear;<br>Jesus, Son of Mary hear!</p>
-              </div>
-            </details>
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 330</span><span class="music-title">Now the Labourer’s Task Is O’er</span><span class="music-context">Graveside congregational hymn · 4 verses</span></summary>
-              <div class="lyrics-body">
-                <p>1. Now the labourer’s task is o’er,<br>Now the battle-day is past;<br>Now upon the farther shore<br>Lands the voyager at last.<br>Father, in Thy gracious keeping<br>Leave we now Thy servant sleeping.</p>
-                <p>2. There the tears of earth are dried;<br>There its hidden things are clear;<br>There the work of life is tried<br>By a juster Judge than here.</p>
-                <p>3. There the penitents that turn<br>To the Cross their dying eyes<br>All the love of Jesus learn<br>At His feet in Paradise.</p>
-                <p>4. “Earth to earth, and dust to dust,”<br>Calmly now the words we say;<br>Leaving her to sleep, in trust,<br>Till the resurrection day.</p>
-              </div>
-            </details>
-            <details class="hymn-lyrics">
-              <summary><span class="music-number">RCH 29</span><span class="music-title">Now Thank We All Our God</span><span class="music-context">At home · 3 verses</span></summary>
-              <div class="lyrics-body">
-                <p>1. Now thank we all our God,<br>With hearts and hands and voices,<br>Who wondrous things hath done,<br>In whom His world rejoices,—<br>Who, from our mothers’ arms,<br>Hath blessed us on our way<br>With countless gifts of love,<br>And still is ours to-day.</p>
-                <p>2. O may this bounteous God<br>Through all our lives be near us,<br>With ever-joyful hearts<br>And blessed peace to cheer us,<br>And keep us by His grace,<br>And guide us when perplexed,<br>And free us from all ills<br>In this world and the next.</p>
-                <p>3. All praise and thanks to God<br>The Father now be given,<br>The Son and Him who reigns<br>With them in highest heaven,—<br>The one, eternal God,<br>Whom earth and heaven adore;<br>For thus it was, is now,<br>And shall be evermore.</p>
-              </div>
-            </details>
-          </div>
-        </div>
+
       </div>
     </section>
 
