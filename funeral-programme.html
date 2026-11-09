@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="View the full funeral programme for Rev. Usang Iso, including tributes, condolences, and memories.">
+  <title>Funeral Programme | In Loving Memory of Rev. Usang Iso</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f4ef;
+      --ink: #242820;
+      --muted: #72766d;
+      --line: #deddd5;
+      --accent: #9b7950;
+      --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 15px/1.7 var(--sans);
+    }
+    a { color: inherit; }
+    .topbar {
+      position: sticky;
+      z-index: 2;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1rem clamp(1.25rem, 5vw, 5rem);
+      border-bottom: 1px solid rgb(36 40 32 / 9%);
+      background: rgb(246 244 239 / 95%);
+      backdrop-filter: blur(12px);
+    }
+    .wordmark {
+      display: inline-flex;
+      width: 2.8rem;
+      height: 2.8rem;
+      flex: 0 0 auto;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+    .wordmark img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .4rem 1.2rem; }
+    nav a {
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--accent); }
+    .content { width: min(100% - 2rem, 1120px); margin: 0 auto; padding: clamp(2.5rem, 7vw, 5rem) 0; }
+    .intro { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
+    .eyebrow {
+      margin: 0 0 .75rem;
+      color: var(--accent);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0 0 1rem; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.12; letter-spacing: -.045em; }
+    .intro > p:last-of-type { margin: 0; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .9rem 1.25rem; margin-top: 1.5rem; }
+    .open-pdf {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: .75rem 1.35rem;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+    .open-pdf:hover { background: #80613d; transform: translateY(-1px); }
+    .open-pdf:focus-visible, .download:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .download { color: var(--muted); font-size: .9rem; text-underline-offset: .2em; }
+    footer { padding: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; text-align: center; }
+    footer p { margin: .2rem; }
+    @media (max-width: 700px) {
+      .topbar { align-items: flex-start; flex-direction: column; gap: .6rem; padding: .75rem 1rem; }
+      nav { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem; }
+      nav a { padding: .5rem .35rem; border: 1px solid var(--line); border-radius: .25rem; font-size: .62rem; font-weight: 700; text-align: center; }
+      .content { width: min(100% - 1.25rem, 1120px); padding-top: 2rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="rev-iso-memorial.html#home" aria-label="In Loving Memory of Rev. Usang Iso">
+      <img src="rev-iso-portrait.jpg" alt="">
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="rev-iso-memorial.html#home">Home</a>
+      <a href="order-of-service.html">Order of Service</a>
+      <a href="funeral-programme.html" aria-current="page">Funeral Programme</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">In Loving Memory of Rev. Usang Iso</p>
+      <h1 id="page-title">Funeral Programme</h1>
+      <p>Open the programme to view tributes, condolences, memories and other parts of the program.</p>
+      <div class="actions">
+        <a class="open-pdf" href="funeral-programme.pdf" target="_blank" rel="noopener">
+          Open PDF File
+          <span class="visually-hidden"> in a new tab</span>
+        </a>
+        <a class="download" href="funeral-programme.pdf" download>Download the PDF</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>In Loving Memory of Rev. Usang Iso</p>
+    <p><a href="rev-iso-memorial.html#home">Return to the homepage</a></p>
+  </footer>
+</body>
+</html>

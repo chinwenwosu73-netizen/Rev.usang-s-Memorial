@@ -101,7 +101,7 @@
       border: 1px solid var(--accent);
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 0 rgb(155 121 80 / 0%);
+      box-shadow: 0 0 12px 3px rgb(155 121 80 / 48%);
       color: #fff;
       cursor: pointer;
       font-size: .85rem;
@@ -124,8 +124,8 @@
       font-size: .9rem;
     }
     @keyframes rsvp-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgb(155 121 80 / 32%); }
-      50% { box-shadow: 0 0 0 .55rem rgb(155 121 80 / 0%); }
+      0%, 100% { box-shadow: 0 0 8px 2px rgb(155 121 80 / 38%); }
+      50% { box-shadow: 0 0 20px 8px rgb(155 121 80 / 68%); }
     }
     .section { padding: clamp(5rem, 10vw, 9rem) 1.5rem; border-top: 1px solid var(--line); }
     .inner { width: min(100%, 980px); margin: 0 auto; }
@@ -190,14 +190,59 @@
     .biography { max-width: 700px; font: clamp(1.18rem, 2.2vw, 1.55rem)/1.8 var(--serif); }
     .biography .placeholder { font: .9rem/1.7 var(--sans); }
     .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-    .tribute {
-      min-height: 180px;
-      padding: 1.8rem;
+    .person-list { display: grid; gap: 1rem; }
+    .legacy-tributes { display: none; }
+    .person-entry {
+      overflow: hidden;
       border: 1px solid var(--line);
-      background: rgb(255 255 255 / 28%);
+      background: rgba(255, 255, 255, 0.25);
     }
-    blockquote { margin: 0 0 1.2rem; font: 1.25rem/1.55 var(--serif); }
-    cite { color: var(--muted); font-size: .75rem; font-style: normal; letter-spacing: .1em; text-transform: uppercase; }
+    .person-entry summary {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+    }
+    .person-entry summary::-webkit-details-marker { display: none; }
+    .person-entry summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+    .person-thumb {
+      width: 66px;
+      height: 66px;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      background: #edeae1;
+    }
+    .person-content {
+      display: grid;
+      grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+      gap: 1.25rem;
+      padding: 0 1.25rem 1.25rem;
+    }
+    .source-content { grid-template-columns: minmax(0, 1fr); }
+    .person-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: #ece7df;
+    }
+    .source-scan {
+      height: auto;
+      min-height: 0;
+      max-height: 80vh;
+      object-fit: contain;
+      object-position: top center;
+    }
+    .person-copy { display: grid; gap: .8rem; }
+    .person-copy p { margin: 0; color: var(--muted); }
+    .person-copy strong { color: var(--ink); }
     .condolence {
       display: flex;
       align-items: center;
@@ -276,11 +321,9 @@
       <img src="rev-iso-portrait.jpg" alt="">
     </a>
     <nav aria-label="Main navigation">
-      <a href="#service">Order of Service</a>
-      <a href="#biography">Biography</a>
-      <a href="#tributes">Tributes</a>
-      <a href="#condolences">Condolences</a>
-      <a href="#memories">Memories</a>
+      <a href="#home">Home</a>
+      <a href="order-of-service.html">Order of Service</a>
+      <a href="funeral-programme.html">Funeral Programme</a>
     </nav>
   </header>
 
@@ -288,273 +331,20 @@
     <section class="hero" id="home" aria-labelledby="page-title">
       <div class="hero-content">
         <p class="eyebrow">In Loving Memory</p>
-        <h1 id="page-title">Rev. Usang Ekpenyong Iso</h1>
+        <h1 id="page-title">Late Most Rev. Usang Iso (RTD)</h1>
         <p class="subtitle">A life of faith, service, and love.</p>
         <div class="rule" aria-hidden="true"></div>
-        <p class="dates">Tuesday, 28 July 2026 · Aged 72</p>
+        <p class="dates">1954 - 2026. AGED 72.</p>
         <details class="rsvp-action">
           <summary class="rsvp-button">RSVP Contact</summary>
           <p class="rsvp-details"><a href="tel:09064948956">Ntoe - 09064948956</a></p>
         </details>
-        <a class="scroll-cue" href="#service">Remembering together</a>
+        <a class="scroll-cue" href="order-of-service.html">View Order of Service</a>
       </div>
       <img class="hero-portrait" src="rev-iso-portrait.jpg" alt="Portrait of Rev. Usang Iso">
     </section>
 
-    <section class="section" id="service" aria-labelledby="service-title">
-      <div class="inner">
-        <div class="heading">
-          <p class="eyebrow">Celebration of life</p>
-          <h2 id="service-title">Order of Service</h2>
-          <p>Funeral and memorial thanksgiving services will take place from 11 to 13 November 2026.</p>
-        </div>
-        <div class="funeral-details" aria-label="Funeral details">
-          <article class="detail">
-            <h3>Funeral dates</h3>
-            <p>11–13 November 2026</p>
-          </article>
-          <article class="detail">
-            <h3>Residence</h3>
-            <p>Plot 83 Ibom Layout, off Old Ikang Road, Cal.</p>
-          </article>
-          <article class="detail">
-            <h3>Parish</h3>
-            <p>The PCN, Big Qua Town Parish</p>
-          </article>
-          <article class="detail">
-            <h3>In remembrance</h3>
-            <p>Rev. Usang Iso (Rtd.), aged 72. He passed away on Tuesday, 28 July 2026.</p>
-          </article>
-        </div>
-        <h3 class="eyebrow">Order of service</h3>
-        <div class="programme">
-          <article class="programme-part">
-            <h3>The Approach</h3>
-            <ul>
-              <li>Vestry prayer</li>
-              <li>Procession of the Word, choir, elders, ministers, and casket</li>
-              <li>Hymn: RCH 592
-                <details class="programme-hymn">
-                  <summary>Open lyrics — There Is a Land of Pure Delight</summary>
-                  <div class="lyrics-body">
-                    <p>1. There is a land of pure delight,<br>Where saints immortal reign;<br>Infinite day excludes the night,<br>And pleasures banish pain;</p>
-                    <p>2. There everlasting spring abides,<br>And never-withering flowers;<br>Death, like a narrow sea, divides<br>This heavenly land from ours.</p>
-                    <p>3. Sweet fields beyond the swelling flood<br>Stand dressed in living green;<br>So to the Jews old Canaan stood,<br>And Jordan rolled between.</p>
-                    <p>4. But timorous mortals start and shrink<br>To cross this narrow sea,<br>And linger, shivering on the brink,<br>And fear to launch away.</p>
-                    <p>5. O could we make our doubts remove—<br>Those gloomy doubts that rise—<br>And see the Canaan that we love,<br>With unbeclouded eyes;</p>
-                    <p>6. Could we but climb where Moses stood,<br>And view the landscape o’er,<br>Not Jordan’s stream, nor death’s cold flood,<br>Should fright us from the shore.</p>
-                  </div>
-                </details>
-              </li>
-              <li>Prelude: RCH 194 (verses 1 and 4)
-                <details class="programme-hymn">
-                  <summary>Open lyrics — Breathe on Me, Breath of God</summary>
-                  <div class="lyrics-body">
-                    <p>Breathe on me, breath of God;<br>Fill me with life anew,<br>That I may love what Thou dost love,<br>And do what Thou wouldst do.</p>
-                    <p>Breathe on me, breath of God;<br>So shall I never die,<br>But live with Thee the perfect life<br>Of Thine eternity.</p>
-                  </div>
-                </details>
-              </li>
-              <li>Call to worship</li>
-              <li>Congregational hymn: RCH 135
-                <details class="programme-hymn">
-                  <summary>Open lyrics — Rejoice, the Lord Is King</summary>
-                  <div class="lyrics-body">
-                    <p>1. Rejoice, the Lord is King;<br>Your Lord and King adore;<br>Mortals, give thanks and sing<br>And triumph evermore:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice”</p>
-                    <p>2. Jesus, the Saviour, reigns,<br>The God of truth and love;<br>When He had purged our stains,<br>He took His seat above:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice”</p>
-                    <p>3. His Kingdom cannot fail;<br>He rules o’er earth and heaven;<br>The keys of death and hell<br>Are to our Jesus given:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice.”</p>
-                    <p>4. He sits at God’s right hand<br>Till all His foes submit,<br>And bow to His command,<br>And fall beneath His feet:<br>Lift up your heart, lift up your voice;<br>Rejoice; again I say, “Rejoice.”</p>
-                    <p>5. Rejoice in glorious hope;<br>Jesus, the Judge, shall come,<br>And take His servants up<br>To their eternal home;<br>We soon shall hear the archangel’s voice;<br>The trump of God shall sound, “Rejoice.”</p>
-                  </div>
-                </details>
-              </li>
-              <li>Prayers of adoration, confession, and supplication</li>
-              <li>Anthem by Big Qua Town Parish Choir</li>
-            </ul>
-          </article>
-          <article class="programme-part">
-            <h3>The Word</h3>
-            <ul>
-              <li>Old Testament lesson</li>
-              <li>Rendition</li>
-              <li>New Testament lesson</li>
-              <li>Biography of Rev. Usang Iso</li>
-              <li>Tributes and condolences</li>
-              <li>Moment of silence</li>
-              <li>Hymn before sermon: RCH 592
-                <details class="programme-hymn">
-                  <summary>Open lyrics — There Is a Land of Pure Delight</summary>
-                  <div class="lyrics-body">
-                    <p>1. There is a land of pure delight,<br>Where saints immortal reign;<br>Infinite day excludes the night,<br>And pleasures banish pain;</p>
-                    <p>2. There everlasting spring abides,<br>And never-withering flowers;<br>Death, like a narrow sea, divides<br>This heavenly land from ours.</p>
-                    <p>3. Sweet fields beyond the swelling flood<br>Stand dressed in living green;<br>So to the Jews old Canaan stood,<br>And Jordan rolled between.</p>
-                    <p>4. But timorous mortals start and shrink<br>To cross this narrow sea,<br>And linger, shivering on the brink,<br>And fear to launch away.</p>
-                    <p>5. O could we make our doubts remove—<br>Those gloomy doubts that rise—<br>And see the Canaan that we love,<br>With unbeclouded eyes;</p>
-                    <p>6. Could we but climb where Moses stood,<br>And view the landscape o’er,<br>Not Jordan’s stream, nor death’s cold flood,<br>Should fright us from the shore.</p>
-                  </div>
-                </details>
-              </li>
-              <li>Sermon by Most Rev. Dr. Ubong Ekpenyong Eyo, MNABIS, MNASR</li>
-              <li>Ascription of glory</li>
-            </ul>
-          </article>
-          <article class="programme-part">
-            <h3>The Response</h3>
-            <ul>
-              <li>Apostles’ Creed</li>
-              <li>Prayer of thanksgiving, intercession, and the Lord’s Prayer</li>
-              <li>Song by the bereaved family</li>
-              <li>Prayer for the bereaved family</li>
-              <li>Announcements and offerings</li>
-              <li>Freewill offering by the Contemporary Choir</li>
-              <li>Welfare offering for the family and dedication of offering</li>
-              <li>Closing hymn: RCH 331
-                <details class="programme-hymn">
-                  <summary>Open lyrics — O Lord of Life, Where’er They Be</summary>
-                  <div class="lyrics-body">
-                    <p>1. O Lord of life, where’er they be,<br>Safe in Thine own eternity,<br>Our dead are living unto Thee.<br>Hallelujah!</p>
-                    <p>2. All souls are Thine, and, here or there,<br>They rest within Thy sheltering care;<br>One providence alike they share.<br>Hallelujah!</p>
-                    <p>3. Thy word is true, Thy ways are just;<br>Above the requiem, “Dust to dust,”<br>Shall rise our psalm of grateful trust.<br>Hallelujah!</p>
-                    <p>4. O happy they in God who rest,<br>No more by fear and doubt oppressed;<br>Living or dying, they are blest<br>Hallelujah!</p>
-                  </div>
-                </details>
-              </li>
-              <li>Benediction</li>
-              <li>Recessional hymn: RCH 591
-                <details class="programme-hymn">
-                  <summary>Open lyrics — Every Morning the Red Sun</summary>
-                  <div class="lyrics-body">
-                    <p>1. Every morning the red sun<br>Rises warm and bright;<br>But the evening cometh on,<br>And the dark cold night;<br>There’s a bright land far-away<br>Where ’tis never-ending day.</p>
-                    <p>2. Every spring the sweet young flowers<br>Open bright and gay;<br>Till the chilly autumn hours<br>Withers them away;<br>There’s a land we have not seen,<br>Where the trees are always green.</p>
-                    <p>3. Little birds sing songs of praise<br>All the summer long;<br>But in cold, shorter days<br>They forget their song;<br>There’s a place where angels sing<br>Ceaseless praises to their Kings.</p>
-                    <p>4. Christ our Lord is ever near<br>Those who follow Him;<br>But we cannot see Him here,<br>For our eyes are dim;<br>There is a most happy place,<br>Where men always see His face.</p>
-                    <p>5. Who shall go to that bright land?<br>All who love the right:<br>Holy children there shall stand<br>In their robes of white;<br>For that heaven, so bright and blest,<br>Is our everlasting rest.</p>
-                  </div>
-                </details>
-              </li>
-            </ul>
-          </article>
-          <article class="programme-part">
-            <h3>At the Graveside</h3>
-            <ul>
-              <li>Congregational hymn: RCH 329
-                <details class="programme-hymn">
-                  <summary>Open lyrics — When Our Heads Are Bowed with Woe</summary>
-                  <div class="lyrics-body">
-                    <p>1. When our heads are bowed with woe,<br>When our bitter tears o’erflow,<br>When we mourn the lost, the dear,<br>Jesus, Son of Mary hear!</p>
-                    <p>2. Thou our throbbing flesh hast worn;<br>Thou our mortal griefs hast borne;<br>Thou hast shed the human tear;<br>Jesus, Son of Mary hear!</p>
-                    <p>3. When the sullen death-bell tolls<br>For our own departing souls,<br>When our final doom is near,<br>Jesus, Son of Mary hear!</p>
-                    <p>4. Thou hast bowed the dying head:<br>Thou the blood of life hast shed;<br>Thou hast filled a mortal bier;<br>Jesus, Son of Mary hear!</p>
-                    <p>5. When the heart is sad within<br>With the thought of all its sin.<br>When the spirit shrinks with fear,<br>Jesus, Son of Mary hear!</p>
-                    <p>6. Thou the shame, the grief, hast known,<br>Though the sins were not Thine own:<br>Thou hast deigned their load to bear;<br>Jesus, Son of Mary hear!</p>
-                  </div>
-                </details>
-              </li>
-              <li>Scriptural sentences</li>
-              <li>Consecration of the tomb</li>
-              <li>Committal of the body</li>
-              <li>Congregational hymn: RCH 330
-                <details class="programme-hymn">
-                  <summary>Open lyrics — Now the Labourer’s Task Is O’er</summary>
-                  <div class="lyrics-body">
-                    <p>1. Now the labourer’s task is o’er,<br>Now the battle-day is past;<br>Now upon the farther shore<br>Lands the voyager at last.<br>Father, in Thy gracious keeping<br>Leave we now Thy servant sleeping.</p>
-                    <p>2. There the tears of earth are dried;<br>There its hidden things are clear;<br>There the work of life is tried<br>By a juster Judge than here.</p>
-                    <p>3. There the penitents that turn<br>To the Cross their dying eyes<br>All the love of Jesus learn<br>At His feet in Paradise.</p>
-                    <p>4. “Earth to earth, and dust to dust,”<br>Calmly now the words we say;<br>Leaving her to sleep, in trust,<br>Till the resurrection day.</p>
-                  </div>
-                </details>
-              </li>
-              <li>Sealing of the grave with choir singing</li>
-              <li>Benediction</li>
-            </ul>
-          </article>
-          <article class="programme-part">
-            <h3>At Home</h3>
-            <ul>
-              <li>Hymn: RCH 29
-                <details class="programme-hymn">
-                  <summary>Open lyrics — Now Thank We All Our God</summary>
-                  <div class="lyrics-body">
-                    <p>1. Now thank we all our God,<br>With hearts and hands and voices,<br>Who wondrous things hath done,<br>In whom His world rejoices,—<br>Who, from our mothers’ arms,<br>Hath blessed us on our way<br>With countless gifts of love,<br>And still is ours to-day.</p>
-                    <p>2. O may this bounteous God<br>Through all our lives be near us,<br>With ever-joyful hearts<br>And blessed peace to cheer us,<br>And keep us by His grace,<br>And guide us when perplexed,<br>And free us from all ills<br>In this world and the next.</p>
-                    <p>3. All praise and thanks to God<br>The Father now be given,<br>The Son and Him who reigns<br>With them in highest heaven,—<br>The one, eternal God,<br>Whom earth and heaven adore;<br>For thus it was, is now,<br>And shall be evermore.</p>
-                  </div>
-                </details>
-              </li>
-              <li>Words of comfort</li>
-              <li>Prayers and the Lord’s Prayer</li>
-              <li>Benediction</li>
-            </ul>
-          </article>
-        </div>
 
-      </div>
-    </section>
-
-    <section class="section" id="biography" aria-labelledby="biography-title">
-      <div class="inner">
-        <div class="heading">
-          <p class="eyebrow">The life behind the legacy</p>
-          <h2 id="biography-title">Biography</h2>
-        </div>
-        <div class="biography">
-          <p class="placeholder">[Add Rev. Usang Iso’s family story, ministry, milestones, and the values that shaped his life.]</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="tributes" aria-labelledby="tributes-title">
-      <div class="inner">
-        <div class="heading">
-          <p class="eyebrow">Words from the heart</p>
-          <h2 id="tributes-title">Tributes</h2>
-          <p>Remembering the kindness, wisdom, and faith Rev. Usang Iso shared with those around him.</p>
-        </div>
-        <div class="cards">
-          <article class="tribute">
-            <blockquote class="placeholder">[Add a personal tribute or a favourite memory.]</blockquote>
-            <cite>[Name]</cite>
-          </article>
-          <article class="tribute">
-            <blockquote class="placeholder">[Add a message from family, friends, or the community.]</blockquote>
-            <cite>[Name]</cite>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="condolences" aria-labelledby="condolences-title">
-      <div class="inner">
-        <div class="heading">
-          <p class="eyebrow">Together in remembrance</p>
-          <h2 id="condolences-title">Condolences</h2>
-        </div>
-        <div class="condolence">
-          <div>
-            <h3>Leave a message of comfort</h3>
-            <p>[Add a family-approved email address or guestbook link so visitors can share condolences.]</p>
-          </div>
-          <span class="guestbook">Guestbook details coming soon</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="memories" aria-labelledby="memories-title">
-      <div class="inner">
-        <div class="heading">
-          <p class="eyebrow">Held close, always</p>
-          <h2 id="memories-title">Memories</h2>
-          <p>Photographs celebrating a life, a ministry, and the memories shared by family and friends.</p>
-        </div>
-        <div class="memory-collection">
-          <div class="memory-gallery" data-prefix="memories/rev-usang/rev-usang-" data-count="21" data-exclude="10" data-label="Rev. Usang Iso"></div>
-        </div>
-        <div class="memory-collection">
-          <h3>Old Times</h3>
-          <div class="memory-gallery" data-prefix="memories/old-times/old-times-" data-count="37" data-exclude="8,9,10,18,33,34" data-label="Old Times"></div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -567,55 +357,5 @@
       <p class="footer-credit">In Loving Memory of Rev. Usang Iso</p>
     </div>
   </footer>
-  <script>
-    const pages = [...document.querySelectorAll("main > section")];
-    const sectionLinks = [...document.querySelectorAll(".topbar nav a")];
-
-    document.querySelectorAll(".memory-gallery").forEach((gallery) => {
-      const { count, exclude = "", label, prefix } = gallery.dataset;
-      const repeatedPhotos = new Set(
-        exclude.split(",").filter(Boolean).map(Number)
-      );
-
-      for (let index = 1; index <= Number(count); index += 1) {
-        if (repeatedPhotos.has(index)) {
-          continue;
-        }
-
-        const figure = document.createElement("figure");
-        const image = document.createElement("img");
-        const photoNumber = String(index).padStart(2, "0");
-
-        figure.className = "memory-photo";
-        image.src = `${prefix}${photoNumber}.jpg`;
-        image.alt = `${label} photograph ${gallery.childElementCount + 1}`;
-        image.loading = "lazy";
-        figure.append(image);
-        gallery.append(figure);
-      }
-    });
-
-    function showCurrentPage() {
-      const requestedId = window.location.hash.slice(1);
-      const currentPage = pages.find((page) => page.id === requestedId) || pages[0];
-
-      pages.forEach((page) => {
-        page.hidden = page !== currentPage;
-      });
-
-      sectionLinks.forEach((link) => {
-        if (link.hash === `#${currentPage.id}`) {
-          link.setAttribute("aria-current", "page");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
-
-      window.scrollTo(0, 0);
-    }
-
-    window.addEventListener("hashchange", showCurrentPage);
-    showCurrentPage();
-  </script>
 </body>
 </html>
